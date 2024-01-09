@@ -7,7 +7,8 @@ public class Teleporter : MonoBehaviour
 {
 
     [SerializeField] private float timeToInteract = 0;
-    
+
+    private GameObject m_Player;
     private Animator m_Animator;
     private float m_TimePointed = 0;
     private bool m_IsPointed = false;
@@ -17,6 +18,7 @@ public class Teleporter : MonoBehaviour
     private void Start()
     {
         m_Animator = GetComponent<Animator>();
+        if (Camera.main != null) m_Player = Camera.main.gameObject.transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -54,7 +56,9 @@ public class Teleporter : MonoBehaviour
 
     private void Teleport()
     {
-        
+        var pos = transform.position;
+        m_Player.transform.position = new Vector3(pos.x,m_Player.transform.position.y,pos.z);
+        m_Player.transform.rotation = transform.rotation;
         
     }
     
