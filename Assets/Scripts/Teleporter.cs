@@ -58,8 +58,6 @@ public class Teleporter : MonoBehaviour
     {
         var pos = transform.position;
         m_Player.transform.position = new Vector3(pos.x,m_Player.transform.position.y,pos.z);
-        m_Player.transform.rotation = transform.rotation;
-        
     }
     
     public void OnPointerEnter()

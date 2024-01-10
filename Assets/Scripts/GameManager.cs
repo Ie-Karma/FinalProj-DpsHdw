@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         if (!m_IsGameStarted) return;
         m_GameTime += Time.deltaTime;
             
-        if (m_GameTime > 10)
+        if (m_GameTime > 120)
         {
             EndGame();
         }
